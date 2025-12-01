@@ -13,5 +13,10 @@ axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 // сторінка каталог - усі кемпери
 export const getCampers = async () => {
   const res = await axios.get<CamperListResponse>("/campers");
-  return res.data;
+  const { items, total } = res.data;
+
+  return {
+    total,
+    campers: items,
+  };
 };

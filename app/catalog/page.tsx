@@ -1,3 +1,4 @@
+import CamperList from "@/components/CamperList/CamperList";
 import { getCampers } from "@/lib/api";
 import type { Metadata } from "next";
 
@@ -7,13 +8,15 @@ export const metadata: Metadata = {
 };
 
 const Catalog = async () => {
-  const campers = await getCampers();
-  console.log("campers", campers.total);
+  const response = await getCampers();
 
   return (
-    <>
+    <section>
       <h1>Catalog page!</h1>
-    </>
+      {response?.campers?.length > 0 && (
+        <CamperList campers={response.campers} />
+      )}
+    </section>
   );
 };
 export default Catalog;
