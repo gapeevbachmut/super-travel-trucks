@@ -3,15 +3,8 @@
 export default function Home() {
   return (
     <>
-      <p>page.tsx - головна сторінка застосунку (маршрут /).</p>
-      <p>
-        layout.tsx - спільна оболонка для всіх сторінок (хедер, футер тощо).
-      </p>
-      <p>
-        globals.css - глобальні стилі, які застосовуються до всього застосунку.
-      </p>
-      <p>page.module.css - локальні стилі тільки для головної сторінки.</p>
-      <p>public - статичні ресурси (доступне за шляхом /назва_файлу)</p>
+      <h1>Campers of your dreams</h1>
+      <h3>You can find everything you want in our catalog</h3>
     </>
   );
 }
