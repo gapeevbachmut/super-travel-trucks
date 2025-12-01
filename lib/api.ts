@@ -20,3 +20,9 @@ export const getCampers = async () => {
     campers: items,
   };
 };
+
+// один
+export const getOneCamper = async (id: string) => {
+  const response = await axios.get<Camper>(`/campers/${id}`);
+  return response.data;
+};
