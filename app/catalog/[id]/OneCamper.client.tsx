@@ -22,16 +22,11 @@ const OneCamperClient = ({ id }: Props) => {
 
   if (error || !camper) return <p>Some error..</p>;
 
-  const formattedDate = camper.updatedAt
-    ? `Updated at: ${camper.updatedAt}`
-    : `Created at: ${camper.createdAt}`;
-
   return (
     <div>
       One Camper Client page
       <h2>{camper.name}</h2>
       <p>{camper.description}</p>
-      <p>{formattedDate}</p>
     </div>
   );
 };

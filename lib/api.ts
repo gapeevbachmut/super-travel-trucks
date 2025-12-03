@@ -1,5 +1,3 @@
-// lib/api.ts
-
 import { type Camper } from "@/type/camper";
 import axios from "axios";
 
@@ -10,14 +8,14 @@ export type CamperListResponse = {
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
-// сторінка каталог - усі кемпери
-export const getCampers = async () => {
-  const res = await axios.get<CamperListResponse>("/campers");
-  const { items, total } = res.data;
+export const getCampers = async (location?: string) => {
+  const responce = await axios.get<CamperListResponse>("/campers", {
+    params: { search: location },
+  });
 
   return {
-    total,
-    campers: items,
+    total: responce.data.total,
+    campers: responce.data.items,
   };
 };
 

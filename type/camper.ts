@@ -39,7 +39,4 @@ export type Camper = {
 
   gallery: CamperGalleryItem[];
   reviews: CamperReview[];
-
-  createdAt: string;
-  updatedAt: string;
 };
