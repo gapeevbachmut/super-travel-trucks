@@ -8,9 +8,9 @@ export type CamperListResponse = {
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
-export const getCampers = async (location?: string) => {
+export const getCampers = async (location?: string, form?: string) => {
   const responce = await axios.get<CamperListResponse>("/campers", {
-    params: { search: location },
+    params: { location, form },
   });
 
   return {

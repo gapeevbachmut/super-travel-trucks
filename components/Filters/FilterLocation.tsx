@@ -11,17 +11,16 @@ const FilterLocation = ({ valueLocation, onSearch }: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value);
   };
+
   return (
     <>
       <input
         type="text"
-        placeholder="Фільтрувати за локацією..."
+        placeholder="Filter by location..."
         // value={valueLocation}
         defaultValue={valueLocation} // для дебонса
         onChange={handleChange}
       />
-
-      <p>{valueLocation}</p>
     </>
   );
 };
