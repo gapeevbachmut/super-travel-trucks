@@ -1,4 +1,5 @@
 import { type Camper } from "@/type/camper";
+import { CamperFilters } from "@/type/filters";
 import axios from "axios";
 
 export type CamperListResponse = {
@@ -8,9 +9,9 @@ export type CamperListResponse = {
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
-export const getCampers = async (location?: string, form?: string) => {
+export const getCampers = async (filters: CamperFilters = {}) => {
   const responce = await axios.get<CamperListResponse>("/campers", {
-    params: { location, form },
+    params: filters,
   });
 
   return {
