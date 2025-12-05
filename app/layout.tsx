@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Travel-Trucks",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <TanStackProvider>
+          <Toaster position="top-center" reverseOrder={false} />
           <Header />
           <main>{children}</main>
 

@@ -25,8 +25,11 @@ const OneCamperClient = ({ id }: Props) => {
   return (
     <div>
       One Camper Client page
-      <h2>{camper.name}</h2>
-      <p>{camper.description}</p>
+      <h2>Назва{camper.name}</h2>
+      <p>Локація{camper.location}</p>
+      <p>Тип{camper.form}</p>
+      <p>КП{camper.transmission}</p>
+      <p>Паливо{camper.engine}</p>
     </div>
   );
 };

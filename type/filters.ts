@@ -1,26 +1,29 @@
-export type vehicleLocation = { location?: string };
-
-export type vehicleType = { form?: string };
-
-export type vehicleEquipment = {
-  AC?: boolean;
-  kitchen?: boolean;
-  bathroom?: boolean;
-  transmission?: "automatic" | "manual";
-  TV?: boolean;
-  radio?: boolean;
-  engine?: "diesel" | "hybrid" | "petrol";
-};
-
 export type CamperFilters = {
   location?: string;
   form?: string;
-
+  // EQUIPMENT (boolean)
   AC?: boolean;
   kitchen?: boolean;
   bathroom?: boolean;
-  transmission?: "automatic" | "manual";
   TV?: boolean;
   radio?: boolean;
+  refrigerator?: boolean;
+  microwave?: boolean;
+  gas?: boolean;
+  water?: boolean;
+
+  // FIXED VALUE OPTIONS
+  transmission?: "automatic" | "manual";
   engine?: "diesel" | "hybrid" | "petrol";
 };
+
+export type EquipmentKey =
+  | "AC"
+  | "kitchen"
+  | "bathroom"
+  | "TV"
+  | "radio"
+  | "refrigerator"
+  | "microwave"
+  | "gas"
+  | "water";
