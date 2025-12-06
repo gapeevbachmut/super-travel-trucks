@@ -1,5 +1,5 @@
-import { type Camper } from "@/type/camper";
-import { CamperFilters } from "@/type/filters";
+import { type Camper } from "@/types/camper";
+import { type CamperFilters } from "@/types/filters";
 import axios from "axios";
 
 export type CamperListResponse = {
@@ -7,11 +7,23 @@ export type CamperListResponse = {
   items: Camper[];
 };
 
-axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
+// axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
-export const getCampers = async (filters: CamperFilters = {}) => {
-  const responce = await axios.get<CamperListResponse>("/campers", {
-    params: filters,
+const api = axios.create({
+  baseURL: "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io",
+  headers: { "Content-Type": "application/json" },
+  timeout: 10000,
+});
+
+export const getCampers = async (
+  filters: CamperFilters = {},
+  page = 1,
+  limit = 4
+) => {
+  const params: CamperFilters = { page, limit, ...filters };
+
+  const responce = await api.get<CamperListResponse>("/campers", {
+    params,
   });
 
   return {
@@ -22,6 +34,6 @@ export const getCampers = async (filters: CamperFilters = {}) => {
 
 // один
 export const getOneCamper = async (id: string) => {
-  const response = await axios.get<Camper>(`/campers/${id}`);
+  const response = await api.get<Camper>(`/campers/${id}`);
   return response.data;
 };

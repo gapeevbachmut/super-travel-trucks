@@ -8,16 +8,14 @@ export const metadata: Metadata = {
   description: "Campers of your dreams",
 };
 
-const Catalog = async () => {
-  const { campers } = await getCampers();
-  const locations = Array.from(
-    new Set(campers.map((camper) => camper.location))
-  );
+const CatalogPage = async () => {
+  const { campers, total } = await getCampers({}, 1, 4);
 
   return (
-    <section className={css.catalogContainer}>
-      <AllFilters campers={campers} locations={locations} />
-    </section>
+    <main className={css.catalogContainer}>
+      <h1>Catalog</h1>
+      <AllFilters initCampers={campers} initTotal={total} initPage={1} />
+    </main>
   );
 };
-export default Catalog;
+export default CatalogPage;

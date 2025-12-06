@@ -7,7 +7,7 @@ type Props = {
   id: string;
 };
 //id передав пропсом
-const OneCamperClient = ({ id }: Props) => {
+const CamperHeader = ({ id }: Props) => {
   const {
     data: camper,
     isLoading,
@@ -24,6 +24,7 @@ const OneCamperClient = ({ id }: Props) => {
 
   return (
     <div>
+      <h1>Camper Header</h1>
       One Camper Client page
       <h2>Назва{camper.name}</h2>
       <p>Локація{camper.location}</p>
@@ -34,4 +35,4 @@ const OneCamperClient = ({ id }: Props) => {
   );
 };
 
-export default OneCamperClient;
+export default CamperHeader;

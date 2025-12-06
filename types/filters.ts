@@ -1,7 +1,8 @@
 export type CamperFilters = {
   location?: string;
+
   form?: string;
-  // EQUIPMENT (boolean)
+
   AC?: boolean;
   kitchen?: boolean;
   bathroom?: boolean;
@@ -12,9 +13,11 @@ export type CamperFilters = {
   gas?: boolean;
   water?: boolean;
 
-  // FIXED VALUE OPTIONS
   transmission?: "automatic" | "manual";
   engine?: "diesel" | "hybrid" | "petrol";
+
+  page?: number;
+  limit?: number;
 };
 
 export type EquipmentKey =

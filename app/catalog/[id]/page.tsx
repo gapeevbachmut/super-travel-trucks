@@ -4,7 +4,10 @@ import {
   HydrationBoundary,
   dehydrate,
 } from "@tanstack/react-query";
-import OneCamperClient from "./OneCamper.client";
+import CamperHeader from "@/components/CamperDetails/CamperHeader";
+import Features from "@/components/CamperDetails/Features";
+import Reviews from "@/components/CamperDetails/Reviews";
+import BookingForm from "@/components/CamperDetails/BookingForm";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -20,9 +23,15 @@ const oneCamper = async ({ params }: Props) => {
   });
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <OneCamperClient id={id} />;
-    </HydrationBoundary>
+    <div>
+      <h1>Page Details</h1>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <CamperHeader id={id} />;
+        <Features />
+        <Reviews />
+        <BookingForm />
+      </HydrationBoundary>
+    </div>
   );
 };
 
