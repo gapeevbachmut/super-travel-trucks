@@ -1,0 +1,18 @@
+.container {
+    margin: 48px 64px;
+    display: flex;
+    gap: 64px;
+}
+
+.filters {
+    float: left;
+    width: 360px;
+    height: 100vh;
+}
+
+.catalog {
+    width: 888px;
+
+}
+
+/* ------  FILTERS  ------ */

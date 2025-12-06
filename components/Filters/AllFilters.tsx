@@ -7,6 +7,7 @@ import { getCampers } from "@/lib/api";
 import CamperList from "../CamperList/CamperList";
 import { Camper } from "@/type/camper";
 import toast from "react-hot-toast";
+import css from "./AllFilters.module.css";
 
 export interface FilterFormValues {
   location: string;
@@ -59,8 +60,8 @@ const AllFilters = ({ campers, locations }: Props) => {
     }
   };
   return (
-    <section>
-      <div>
+    <section className={css.container}>
+      <aside className={css.filters}>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form>
             {/* -----  location   ------ */}
@@ -145,9 +146,11 @@ const AllFilters = ({ campers, locations }: Props) => {
             </button>
           </Form>
         </Formik>
+      </aside>
+      <div className={css.catalog}>
+        {!error && <CamperList campers={filtered} />}
+        {/* <CamperList campers={filtered} /> */}
       </div>
-      {!error && <CamperList campers={filtered} />}
-      {/* <CamperList campers={filtered} /> */}
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AllFilters from "@/components/Filters/AllFilters";
 import { getCampers } from "@/lib/api";
+import css from "./pageCftalog.module.css";
 
 export const metadata: Metadata = {
   title: "Catalog of Travel-Trucks",
@@ -14,8 +15,7 @@ const Catalog = async () => {
   );
 
   return (
-    <section>
-      <h1>Catalog page!</h1>
+    <section className={css.catalogContainer}>
       <AllFilters campers={campers} locations={locations} />
     </section>
   );

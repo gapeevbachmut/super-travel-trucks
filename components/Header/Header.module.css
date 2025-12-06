@@ -1,16 +1,40 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 24px;
-    padding: 12px;
-    border-block-end: 1px solid #ccc;
+    /* justify-content: flex-start; */
+    /* gap: 24px; */
+    /* padding: 12px; */
+    /* border-block-end: 1px solid #ccc; */
+
+    border-bottom: 1px solid var(--badges);
+    padding: 24px 64px;
+    width: 1440px;
+    height: 72px;
+    background-color: var(--inputs);
+}
+
+/* .logo {} */
+
+.headerNav {
+    margin: 0 auto;
 }
 
 .navigation {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 12px;
+    gap: 32px;
     list-style-type: none;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--main);
+}
+
+.navigationHome:hover,
+.navigationCatalog:hover {
+    color: var(--button-hover);
 }
