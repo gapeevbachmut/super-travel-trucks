@@ -1,0 +1,20 @@
+/* .reviewWrapper {} */
+
+.name {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--main);
+    margin-bottom: 4px;
+}
+
+.comment {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
+    margin-top: 16px;
+    margin-bottom: 44px;
+}
