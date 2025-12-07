@@ -9,6 +9,9 @@ import { Toaster } from "react-hot-toast";
 export const metadata: Metadata = {
   title: "Travel-Trucks",
   description: "Campers of your dreams",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

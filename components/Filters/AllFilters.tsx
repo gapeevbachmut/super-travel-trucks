@@ -214,7 +214,11 @@ const AllFilters = ({
                   <label className={css.equipmentValue}>
                     <Field type="radio" name="form" value="alcove" />
                     Alcove
+                    {/* <svg width="32" height="32">
+                      <use href="/icons.svg#icon-alcove"></use>
+                    </svg> */}
                   </label>
+
                   <label className={css.equipmentValue}>
                     <Field type="radio" name="form" value="panelTruck" />
                     Panel Truck

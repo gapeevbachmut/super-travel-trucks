@@ -4,6 +4,12 @@
     gap: 64px;
 }
 
+.svg {
+    /* fill: black; */
+    stroke: black;
+    color: black;
+    background-color: black;
+}
 
 .filters {
     float: left;
