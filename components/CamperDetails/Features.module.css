@@ -1,0 +1,65 @@
+.detailsWrapper {
+    border-radius: 10px;
+    padding: 44px 52px;
+    width: 631px;
+    height: 600px;
+    background-color: var(--inputs);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.featuresList {
+    display: flex;
+    gap: 8px;
+}
+
+.featureItem {
+    border-radius: 100px;
+    padding: 12px 0;
+    width: 109px;
+    height: 48px;
+    background: var(--badges);
+    mix-blend-mode: multiply;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--main);
+}
+
+.detailsTitle {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--main);
+    margin-bottom: 24px;
+}
+
+.line {
+    color: var(--gray-light);
+    margin-bottom: 24px;
+}
+
+.specsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.specRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.specLabel,
+.specValue {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--main);
+}

@@ -71,13 +71,13 @@ const AllFilters = ({
         4
       );
       if (!newCampers.length) {
-        setError("Incorrect filter combination. TTTTTTTTTry again.");
+        setError("Incorrect filter combination. Try again.");
       }
       setCampers(newCampers);
       setTotal(newTotal);
       setCurrentFilters(filters);
 
-      actions.resetForm(); //скидання форми ??????   де зробити??????
+      actions.resetForm(); //скидання форми
     } catch {
       toast.error("Incorrect filter combination. Try again!!!!!!!!");
       setError("An error occurred. Returning the full collection.");

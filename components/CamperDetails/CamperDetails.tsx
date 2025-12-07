@@ -66,8 +66,26 @@ const CamperDetails = ({ id }: Props) => {
       <div>
         {/*  кнопки перемикання  опис - відгук  */}
         <div className={css.btnBox}>
-          <button onClick={() => setActiveTab("features")}>Features</button>
-          <button onClick={() => setActiveTab("reviews")}>Reviews</button>
+          <button
+            onClick={() => setActiveTab("features")}
+            className={
+              activeTab === "features"
+                ? `${css.btnBoxBtn} ${css.active}`
+                : css.btnBoxBtn
+            }
+          >
+            Features
+          </button>
+          <button
+            onClick={() => setActiveTab("reviews")}
+            className={
+              activeTab === "reviews"
+                ? `${css.btnBoxBtn} ${css.active}`
+                : css.btnBoxBtn
+            }
+          >
+            Reviews
+          </button>
         </div>
         <hr />
         <div className={css.infoBox}>
