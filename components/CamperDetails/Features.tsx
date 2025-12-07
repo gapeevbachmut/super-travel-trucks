@@ -1,9 +1,16 @@
-const Features = () => {
-  return <h1>Features</h1>;
+import { Camper } from "@/types/camper";
+
+type Props = { camper: Camper };
+
+const Features = ({ camper }: Props) => {
+  return (
+    <div>
+      <h1>Features</h1>
+      <p>{camper.form}</p>
+      <p>🚗 {camper.transmission}</p>
+      <p>⛽{camper.engine}</p>
+    </div>
+  );
 };
 
 export default Features;
-
-// Features.tsx
-// •	Показує set властивостей: transmission, engine, AC, bathroom, kitchen, TV, radio, refrigerator, microwave, gas, water.
-// •	Показ деталей: form, length, width, height, tank, consumption.

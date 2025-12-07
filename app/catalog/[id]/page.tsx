@@ -4,10 +4,7 @@ import {
   HydrationBoundary,
   dehydrate,
 } from "@tanstack/react-query";
-import CamperHeader from "@/components/CamperDetails/CamperHeader";
-import Features from "@/components/CamperDetails/Features";
-import Reviews from "@/components/CamperDetails/Reviews";
-import BookingForm from "@/components/CamperDetails/BookingForm";
+import CamperDetails from "@/components/CamperDetails/CamperDetails";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -24,12 +21,8 @@ const oneCamper = async ({ params }: Props) => {
 
   return (
     <div>
-      <h1>Page Details</h1>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <CamperHeader id={id} />;
-        <Features />
-        <Reviews />
-        <BookingForm />
+        <CamperDetails id={id} />
       </HydrationBoundary>
     </div>
   );

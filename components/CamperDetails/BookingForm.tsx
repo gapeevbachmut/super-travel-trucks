@@ -1,10 +1,15 @@
-const BookingForm = () => {
-  return <h1>Booking Form</h1>;
+import { Camper } from "@/types/camper";
+import css from "./CamperDetails.module.css";
+
+type Props = { camper: Camper };
+
+const BookingForm = ({ camper }: Props) => {
+  return (
+    <div className={css.containerBookinggggg}>
+      <h3>Book your campervan now</h3>
+      <p>{camper.name}</p>
+    </div>
+  );
 };
 
 export default BookingForm;
-
-//  BookingForm
-// •	Форма (Formik + Yup), поля: name, email, dateFrom, dateTo, notes.
-// •	При сабміті: якщо бекенд не має endpoint — симулюємо успіх і показуємо toast (react-toastify). Якщо є endpoint — POST на нього.
-// Після успішної відправки показуєм повідомлення: “Бронювання прийнято”.

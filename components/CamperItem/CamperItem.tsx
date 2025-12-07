@@ -26,7 +26,7 @@ const CamperItem = ({ camper }: Props) => {
         <Image
           src={camper.gallery[0].thumb}
           className={css.itemImg}
-          alt="Camper"
+          alt={camper.name}
           loading="eager"
           width={320}
           height={200}
