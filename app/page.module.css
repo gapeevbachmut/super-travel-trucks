@@ -1,6 +1,7 @@
 .homeContainer {
     width: 1440px;
     height: 696px;
+
 }
 
 .home {
@@ -34,9 +35,10 @@
 .homeBtn {
     background-color: var(--button);
     border-radius: 200px;
-    /* padding: 16px 60px; */
+    border: none;
     width: 173px;
     height: 56px;
+    cursor: pointer;
 }
 
 .homeBtnText {
@@ -46,4 +48,9 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--white);
+}
+
+.homeBtn:hover,
+.homeBtn:focus {
+    background-color: var(--button-hover);
 }

@@ -37,3 +37,13 @@ export const getOneCamper = async (id: string) => {
   const response = await api.get<Camper>(`/campers/${id}`);
   return response.data;
 };
+
+// локації
+export const getAllLocations = async () => {
+  const data = await api.get<CamperListResponse>("/campers", {
+    params: { limit: 100 },
+  });
+  const list = data.data.items;
+  // console.log("data", data.data.items);
+  return Array.from(new Set(list.map((c) => c.location)));
+};

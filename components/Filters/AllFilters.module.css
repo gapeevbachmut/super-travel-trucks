@@ -4,6 +4,7 @@
     gap: 64px;
 }
 
+
 .filters {
     float: left;
     width: 360px;
@@ -15,4 +16,129 @@
 
 }
 
+.btnLoadMore {
+    border: 1px solid var(--gray-light);
+    border-radius: 200px;
+    padding: 16px 32px;
+    width: 145px;
+    height: 56px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--main);
+    background-color: var(--white);
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.btnLoadMore:hover,
+.btnLoadMore:focus {
+    border: 1px solid var(--button-hover);
+}
+
 /* ------  FILTERS  ------ */
+
+.form {
+    width: 360px;
+}
+
+.locationBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.locationTitle {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--gray);
+}
+
+.locationValue {
+    background-color: var(--inputs);
+    border-radius: 12px;
+    padding: 18px 218px 18px 20px;
+    width: 360px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+}
+
+/* .filtersBox {} */
+
+.filtersBoxTitle {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
+    margin-bottom: 32px;
+}
+
+/* .filtersEquipBox {} */
+
+.filtersEquipBoxTitle {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--main);
+    margin-bottom: 24px;
+}
+
+.line {
+    color: var(--gray-light);
+}
+
+.equipmentBox {
+    margin-top: 24px;
+}
+
+.equipmentValue {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: var(--main);
+    cursor: pointer;
+}
+
+.equipmentCheckbox {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.equipmentType {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.btnSearch {
+    background-color: var(--button);
+    border-radius: 200px;
+    border: none;
+    padding: 16px 60px;
+    width: 166px;
+    height: 56px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.btnSearch:hover,
+.btnSearch:focus {
+    background-color: var(--button-hover);
+}

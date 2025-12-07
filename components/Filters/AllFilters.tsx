@@ -1,7 +1,7 @@
 "use client";
 
 import { Formik, Form, Field, FormikHelpers } from "formik";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { CamperFilters, EquipmentKey } from "@/types/filters";
 import { getCampers } from "@/lib/api";
 import CamperList from "../CamperList/CamperList";
@@ -25,27 +25,26 @@ const initialValues: FilterFormValues = {
   engine: "diesel",
 };
 
-type Props = { initCampers: Camper[]; initTotal: number; initPage: number };
+type Props = {
+  initCampers: Camper[];
+  initTotal: number;
+  initPage: number;
+  allLocations: string[];
+};
 
-const AllFilters = ({ initCampers, initTotal, initPage }: Props) => {
+const AllFilters = ({
+  initCampers,
+  initTotal,
+  initPage,
+  allLocations,
+}: Props) => {
   const [campers, setCampers] = useState<Camper[]>(initCampers);
   const [page, setPage] = useState<number>(initPage);
   const [total, setTotal] = useState<number>(initTotal);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const locations = Array.from(
-    new Set(campers.map((camper) => camper.location))
-  );
-  //------------------           or
-  // const locations = useMemo(
-  //   () => Array.from(new Set(campers.map((c) => c.location).filter(Boolean))),
-  //   [campers]
-  // );
-
   const [currentFilters, setCurrentFilters] = useState<CamperFilters>({});
-
-  //
 
   const handleSubmit = async (
     values: FilterFormValues,
@@ -61,7 +60,7 @@ const AllFilters = ({ initCampers, initTotal, initPage }: Props) => {
     if (values.engine) filters.engine = values.engine;
     values.equipment.forEach((key) => (filters[key] = true));
 
-    // скидання
+    // скидання попереднього запиту
     setCampers([]);
     setPage(1);
 
@@ -72,17 +71,18 @@ const AllFilters = ({ initCampers, initTotal, initPage }: Props) => {
         4
       );
       if (!newCampers.length) {
-        setError("Incorrect filter combination. Try again.");
+        setError("Incorrect filter combination. TTTTTTTTTry again.");
       }
       setCampers(newCampers);
       setTotal(newTotal);
       setCurrentFilters(filters);
+
+      actions.resetForm(); //скидання форми ??????   де зробити??????
     } catch {
-      toast.error("Incorrect filter combination. Try again.");
+      toast.error("Incorrect filter combination. Try again!!!!!!!!");
       setError("An error occurred. Returning the full collection.");
       setCampers(initCampers);
       setTotal(initTotal);
-      actions.resetForm(); //скидання форми ??????   де зробити??????
     } finally {
       setLoading(false);
     }
@@ -114,86 +114,121 @@ const AllFilters = ({ initCampers, initTotal, initPage }: Props) => {
     <section className={css.container}>
       <aside className={css.filters}>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          <Form>
+          <Form className={css.form}>
             {/* -----  location   ------ */}
-            <div>
-              <label>Location</label>
-              <Field as="select" name="location">
-                <option value="">All locations</option>
-                {locations.map((location) => (
+            <div className={css.locationBox}>
+              <label className={css.locationTitle}>Location</label>
+              <Field as="select" name="location" className={css.locationValue}>
+                <option value="">🗺 All locations</option>
+                {allLocations.map((location) => (
                   <option key={location} value={location}>
                     {location}
                   </option>
                 ))}
               </Field>
             </div>
-            {/* ------  equipment ------ */}
-            <div>
-              {/* EQUIPMENT BOOLEAN */}
+            <div className={css.filtersBox}>
+              <h3 className={css.filtersBoxTitle}>Filters</h3>
+              {/* -----   equipment  ----- */}
               <div>
-                <p>Equipment</p>
-                <label>
-                  <Field type="checkbox" name="equipment" value="AC" /> AC
-                </label>
-                <label>
-                  <Field type="checkbox" name="equipment" value="kitchen" />
-                  Kitchen
-                </label>
-                <label>
-                  <Field type="checkbox" name="equipment" value="bathroom" />
-                  Bathroom
-                </label>
-                <label>
-                  <Field type="checkbox" name="equipment" value="TV" /> TV
-                </label>
-                <label>
-                  <Field type="checkbox" name="equipment" value="radio" /> Radio
-                </label>
+                <div className={css.filtersEquipBox}>
+                  <h4 className={css.filtersEquipBoxTitle}>
+                    Vehicle equipment
+                  </h4>
+                  <hr className={css.line} />
+                  <div className={css.equipmentBox}>
+                    {/* EQUIPMENT (checkbox) */}
+                    <div className={css.equipmentCheckbox}>
+                      <label className={css.equipmentValue}>
+                        <Field type="checkbox" name="equipment" value="AC" /> AC
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field
+                          type="checkbox"
+                          name="equipment"
+                          value="kitchen"
+                        />
+                        Kitchen
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field
+                          type="checkbox"
+                          name="equipment"
+                          value="bathroom"
+                        />
+                        Bathroom
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field type="checkbox" name="equipment" value="TV" /> TV
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field type="checkbox" name="equipment" value="radio" />{" "}
+                        Radio
+                      </label>
+                    </div>
+
+                    {/* TRANSMISSION (radio) */}
+                    <div className={css.equipmentCheckbox}>
+                      <p>🚗 Transmission:</p>
+                      <label className={css.equipmentValue}>
+                        <Field
+                          type="radio"
+                          name="transmission"
+                          value="automatic"
+                        />
+                        Automatic
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field
+                          type="radio"
+                          name="transmission"
+                          value="manual"
+                        />
+                        Manual
+                      </label>
+                    </div>
+                    {/* ENGINE (radio) */}
+                    <div className={css.equipmentCheckbox}>
+                      <p>⛽ Engine:</p>
+                      <label className={css.equipmentValue}>
+                        <Field type="radio" name="engine" value="diesel" />{" "}
+                        Diesel
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field type="radio" name="engine" value="petrol" />{" "}
+                        Petrol
+                      </label>
+                      <label className={css.equipmentValue}>
+                        <Field type="radio" name="engine" value="hybrid" />{" "}
+                        Hybrid
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
-              {/* TRANSMISSION (radio) */}
+              {/* -----  type------   */}
               <div>
-                <p>Transmission</p>
-                <label>
-                  <Field type="radio" name="transmission" value="automatic" />
-                  Automatic
-                </label>
-                <label>
-                  <Field type="radio" name="transmission" value="manual" />
-                  Manual
-                </label>
-              </div>
-              {/* ENGINE (radio) */}
-              <div>
-                <p>Engine</p>
-                <label>
-                  <Field type="radio" name="engine" value="diesel" /> Diesel
-                </label>
-                <label>
-                  <Field type="radio" name="engine" value="petrol" /> Petrol
-                </label>
-                <label>
-                  <Field type="radio" name="engine" value="hybrid" /> Hybrid
-                </label>
+                <h3 className={css.filtersEquipBoxTitle}>Vehicle type</h3>
+                <hr className={css.line} />
+                <div className={css.equipmentType}>
+                  <label className={css.equipmentValue}>
+                    <Field type="radio" name="form" value="alcove" />
+                    Alcove
+                  </label>
+                  <label className={css.equipmentValue}>
+                    <Field type="radio" name="form" value="panelTruck" />
+                    Panel Truck
+                  </label>
+                  <label className={css.equipmentValue}>
+                    <Field type="radio" name="form" value="fullyIntegrated" />
+                    Fully Integrated
+                  </label>
+                </div>
               </div>
             </div>
-            {/* -----  type------   */}
-            <div>
-              <p>Type</p>
-              <label>
-                <Field type="radio" name="form" value="alcove" />
-                Alcove
-              </label>
-              <label>
-                <Field type="radio" name="form" value="panelTruck" />
-                Panel Truck
-              </label>
-              <label>
-                <Field type="radio" name="form" value="fullyIntegrated" />
-                Fully Integrated
-              </label>
-            </div>
-            <button type="submit">
-              {loading ? "Searching..." : "Apply filters"}
+
+            <button type="submit" className={css.btnSearch}>
+              {loading ? "Searching..." : "Search"}
             </button>
           </Form>
         </Formik>
@@ -201,8 +236,13 @@ const AllFilters = ({ initCampers, initTotal, initPage }: Props) => {
       <div className={css.catalog}>
         {error && <div className="error">{error}</div>}
         <CamperList campers={campers} />
+        {/* перенести кнопку у CamperList - ??? */}
         {campers.length < total && (
-          <button onClick={handleLoadMore} disabled={loading}>
+          <button
+            onClick={handleLoadMore}
+            disabled={loading}
+            className={css.btnLoadMore}
+          >
             {loading ? "Loading..." : "Load More"}
           </button>
         )}
