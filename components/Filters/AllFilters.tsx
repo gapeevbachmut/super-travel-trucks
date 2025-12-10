@@ -196,13 +196,13 @@ const AllFilters = ({
 
               <div className={css.typeGrid}>
                 {[
-                  { value: 'van', label: 'Van', icon: 'van' },
+                  { value: 'panelTruck', label: 'Van', icon: 'van' },
                   {
                     value: 'fullyIntegrated',
                     label: 'Fully Integrated',
                     icon: 'fully',
                   },
-                  { value: 'panelTruck', label: 'Alcove', icon: 'alcove' },
+                  { value: 'alcove', label: 'Alcove', icon: 'alcove' },
                 ].map(type => (
                   <Field name="form" key={type.value}>
                     {({ form }: FieldProps) => {

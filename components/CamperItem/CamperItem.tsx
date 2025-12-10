@@ -1,17 +1,15 @@
-import { useCamperStore } from "@/store/useCamperStore";
-import { Camper } from "@/types/camper";
-import Image from "next/image";
-import Link from "next/link";
-import css from "./CamperItem.module.css";
+import { useCamperStore } from '@/store/useCamperStore';
+import { Camper } from '@/types/camper';
+import Image from 'next/image';
+import Link from 'next/link';
+import css from './CamperItem.module.css';
 
 type Props = { camper: Camper };
 
 const CamperItem = ({ camper }: Props) => {
-  //Навігація на сторінку campera чкерез лінк по назві
-  // const [favorites, addFavorite] = useCamperStore();// or --??????
-  const favorites = useCamperStore((state) => state.favorites);
-  const addFavorite = useCamperStore((state) => state.addFavorite);
-  const removeFavorite = useCamperStore((state) => state.removeFavorite);
+  const favorites = useCamperStore(state => state.favorites);
+  const addFavorite = useCamperStore(state => state.addFavorite);
+  const removeFavorite = useCamperStore(state => state.removeFavorite);
 
   const isFav = favorites.includes(camper.id);
 
@@ -43,7 +41,7 @@ const CamperItem = ({ camper }: Props) => {
                 onClick={toggleFavorite}
                 className={css.itemLike}
               >
-                {isFav ? "🤎" : "🤍"}
+                {isFav ? '🤎' : '🤍'}
               </button>
             </div>
 
@@ -54,17 +52,76 @@ const CamperItem = ({ camper }: Props) => {
               ⭐{camper.reviews[0].reviewer_rating}({camper.reviews.length}
               Reviews)
             </p>
-            <p>🗺{camper.location}</p>
+            <p>
+              <svg width={20} height={20}>
+                <use href="/icons.svg#icon-Map"></use>
+              </svg>{' '}
+              {camper.location}
+            </p>
           </div>
           <p className={css.itemCampDescr}>{camper.description}</p>
           <div className={css.itemEquipBox}>
             {/*  якщо   true  показувати картинку  !!!!! */}
-            <p>🚗 {camper.transmission}</p>
-            <p>⛽{camper.engine}</p>
-            <p>{camper.kitchen}</p>
-            <p>{camper.AC}</p>
-            <p>{camper.TV}</p>
-            <p>{camper.radio}</p>
+            <p className={css.itemEquipItem}>
+              <svg width={20} height={20}>
+                <use href="/icons.svg#icon-transmission"></use>
+              </svg>{' '}
+              {camper.transmission}
+            </p>
+            <p className={css.itemEquipItem}>
+              <svg width={20} height={20}>
+                <use href="/icons.svg#icon-engine"></use>
+              </svg>{' '}
+              {camper.engine}
+            </p>
+            {camper.AC === true && (
+              <p className={css.itemEquipItem}>
+                <svg width={20} height={20}>
+                  <use href="/icons.svg#icon-AC"></use>
+                </svg>{' '}
+                AC
+              </p>
+            )}
+            {camper.kitchen === true && (
+              <p className={css.itemEquipItem}>
+                <svg width={20} height={20}>
+                  <use href="/icons.svg#icon-kitchen"></use>
+                </svg>{' '}
+                Kitchen
+              </p>
+            )}
+            {camper.bathroom === true && (
+              <p className={css.itemEquipItem}>
+                <svg width={20} height={20}>
+                  <use href="/icons.svg#icon-bathroom"></use>
+                </svg>{' '}
+                Bathroom
+              </p>
+            )}
+            {camper.TV === true && (
+              <p className={css.itemEquipItem}>
+                <svg width={20} height={20}>
+                  <use href="/icons.svg#icon-TV"></use>
+                </svg>{' '}
+                TV
+              </p>
+            )}
+            {camper.radio === true && (
+              <p className={css.itemEquipItem}>
+                <svg width={20} height={20}>
+                  <use href="/icons.svg#icon-radio"></use>
+                </svg>{' '}
+                Radio
+              </p>
+            )}
+            {camper.refrigerator === true && (
+              <p className={css.itemEquipItem}>
+                <svg width={20} height={20}>
+                  <use href="/icons.svg#icon-refrigerator"></use>
+                </svg>{' '}
+                Fridge
+              </p>
+            )}
           </div>
         </div>
         {/* лінк у бтн !!!  - підправити стилі!!!*/}
