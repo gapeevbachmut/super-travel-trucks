@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Travel-Trucks",
   description: "Campers of your dreams",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
   },
 };
 

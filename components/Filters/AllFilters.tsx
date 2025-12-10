@@ -1,28 +1,25 @@
-"use client";
+'use client';
 
-import { Formik, Form, Field, FormikHelpers } from "formik";
-import { useState } from "react";
-import { CamperFilters, EquipmentKey } from "@/types/filters";
-import { getCampers } from "@/lib/api";
-import CamperList from "../CamperList/CamperList";
-import { Camper } from "@/types/camper";
-import toast from "react-hot-toast";
-import css from "./AllFilters.module.css";
+import { Formik, Form, Field, FormikConsumer } from 'formik';
+import { useState } from 'react';
+import { CamperFilters, EquipmentKey } from '@/types/filters';
+import { getCampers } from '@/lib/api';
+import CamperList from '../CamperList/CamperList';
+import { Camper } from '@/types/camper';
+import toast from 'react-hot-toast';
+import css from './AllFilters.module.css';
+import { FieldProps } from 'formik';
 
 export interface FilterFormValues {
   location: string;
   form: string;
   equipment: EquipmentKey[];
-  transmission: "automatic" | "manual";
-  engine: "diesel" | "petrol" | "hybrid";
 }
 
 const initialValues: FilterFormValues = {
-  location: "",
-  form: "",
+  location: '',
+  form: '',
   equipment: [],
-  transmission: "automatic",
-  engine: "diesel",
 };
 
 type Props = {
@@ -45,20 +42,32 @@ const AllFilters = ({
   const [error, setError] = useState<string | null>(null);
 
   const [currentFilters, setCurrentFilters] = useState<CamperFilters>({});
+  ///////////////////////////////////////////////////////////////////////////////////////
+  const equipmentOptions: {
+    key: EquipmentKey;
+    label: string;
+    icon: string;
+  }[] = [
+    { key: 'AC', label: 'AC', icon: 'AC' },
+    { key: 'kitchen', label: 'Kitchen', icon: 'kitchen' },
+    { key: 'bathroom', label: 'Bathroom', icon: 'bathroom' },
+    { key: 'TV', label: 'TV', icon: 'TV' },
+    { key: 'radio', label: 'Radio', icon: 'radio' },
+    { key: 'refrigerator', label: 'Fridge', icon: 'refrigerator' },
+    // { key: 'microwave', label: 'Microwave', icon: 'microwave' }, // мають інше svg
+    // { key: 'gas', label: 'Gas', icon: 'gas' },
+    // { key: 'water', label: 'Water', icon: 'water' },
+  ];
 
-  const handleSubmit = async (
-    values: FilterFormValues,
-    actions: FormikHelpers<FilterFormValues>
-  ) => {
+  ////////////////////////////////////////////////////////////////////////////////////
+  const handleSubmit = async (values: FilterFormValues) => {
     setLoading(true);
     setError(null);
 
     const filters: CamperFilters = {};
     if (values.location) filters.location = values.location;
     if (values.form) filters.form = values.form;
-    if (values.transmission) filters.transmission = values.transmission;
-    if (values.engine) filters.engine = values.engine;
-    values.equipment.forEach((key) => (filters[key] = true));
+    values.equipment.forEach(key => (filters[key] = true));
 
     // скидання попереднього запиту
     setCampers([]);
@@ -71,16 +80,14 @@ const AllFilters = ({
         4
       );
       if (!newCampers.length) {
-        setError("Incorrect filter combination. Try again.");
+        setError('Incorrect filter combination. Try again.');
       }
       setCampers(newCampers);
       setTotal(newTotal);
       setCurrentFilters(filters);
-
-      actions.resetForm(); //скидання форми
     } catch {
-      toast.error("Incorrect filter combination. Try again!!!!!!!!");
-      setError("An error occurred. Returning the full collection.");
+      toast.error('Incorrect filter combination. Try again!!!!!!!!');
+      setError('An error occurred. Returning the full collection.');
       setCampers(initCampers);
       setTotal(initTotal);
     } finally {
@@ -100,11 +107,11 @@ const AllFilters = ({
         next,
         4
       );
-      setCampers((prev) => [...prev, ...more]);
+      setCampers(prev => [...prev, ...more]);
       setPage(next);
       setTotal(newTotal);
     } catch {
-      setError("You have viewed all the data.");
+      setError('You have viewed all the data.');
     } finally {
       setLoading(false);
     }
@@ -118,9 +125,15 @@ const AllFilters = ({
             {/* -----  location   ------ */}
             <div className={css.locationBox}>
               <label className={css.locationTitle}>Location</label>
+              <svg width="32" height="32" className={css.iconMap}>
+                <use href="/icons.svg#icon-Map"></use>
+              </svg>
+
               <Field as="select" name="location" className={css.locationValue}>
-                <option value="">🗺 All locations</option>
-                {allLocations.map((location) => (
+                <option value="" className={css.locationCity}>
+                  City
+                </option>
+                {allLocations.map(location => (
                   <option key={location} value={location}>
                     {location}
                   </option>
@@ -129,110 +142,96 @@ const AllFilters = ({
             </div>
             <div className={css.filtersBox}>
               <h3 className={css.filtersBoxTitle}>Filters</h3>
+
               {/* -----   equipment  ----- */}
-              <div>
-                <div className={css.filtersEquipBox}>
-                  <h4 className={css.filtersEquipBoxTitle}>
-                    Vehicle equipment
-                  </h4>
-                  <hr className={css.line} />
-                  <div className={css.equipmentBox}>
-                    {/* EQUIPMENT (checkbox) */}
-                    <div className={css.equipmentCheckbox}>
-                      <label className={css.equipmentValue}>
-                        <Field type="checkbox" name="equipment" value="AC" /> AC
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field
-                          type="checkbox"
-                          name="equipment"
-                          value="kitchen"
-                        />
-                        Kitchen
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field
-                          type="checkbox"
-                          name="equipment"
-                          value="bathroom"
-                        />
-                        Bathroom
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field type="checkbox" name="equipment" value="TV" /> TV
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field type="checkbox" name="equipment" value="radio" />{" "}
-                        Radio
-                      </label>
-                    </div>
 
-                    {/* TRANSMISSION (radio) */}
-                    <div className={css.equipmentCheckbox}>
-                      <p>🚗 Transmission:</p>
-                      <label className={css.equipmentValue}>
-                        <Field
-                          type="radio"
-                          name="transmission"
-                          value="automatic"
-                        />
-                        Automatic
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field
-                          type="radio"
-                          name="transmission"
-                          value="manual"
-                        />
-                        Manual
-                      </label>
-                    </div>
-                    {/* ENGINE (radio) */}
-                    <div className={css.equipmentCheckbox}>
-                      <p>⛽ Engine:</p>
-                      <label className={css.equipmentValue}>
-                        <Field type="radio" name="engine" value="diesel" />{" "}
-                        Diesel
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field type="radio" name="engine" value="petrol" />{" "}
-                        Petrol
-                      </label>
-                      <label className={css.equipmentValue}>
-                        <Field type="radio" name="engine" value="hybrid" />{" "}
-                        Hybrid
-                      </label>
-                    </div>
-                  </div>
-                </div>
+              {/* //////////////////////////////////////////////////////////////////////// */}
+              <h4 className={css.filtersTitle}>Vehicle equipment</h4>
+              <hr className={css.line} />
+
+              <div className={css.equipmentGrid}>
+                {equipmentOptions.map(item => (
+                  <FormikConsumer key={item.key}>
+                    {({ values, setFieldValue }) => {
+                      const isActive = values.equipment.includes(item.key);
+
+                      return (
+                        <button
+                          type="button"
+                          className={`${css.equipmentCard} ${isActive ? css.active : ''}`}
+                          onClick={() => {
+                            const newArr = isActive
+                              ? values.equipment.filter(
+                                  (value: string) => value !== item.key
+                                )
+                              : [...values.equipment, item.key];
+
+                            setFieldValue('equipment', newArr);
+                          }}
+                        >
+                          <svg
+                            width="32"
+                            height="32"
+                            className={css.equipmentSvg}
+                          >
+                            <use href={`/icons.svg#icon-${item.icon}`} />
+                          </svg>
+                          <span className={css.equipmentLabel}>
+                            {item.label}
+                          </span>
+                        </button>
+                      );
+                    }}
+                  </FormikConsumer>
+                ))}
               </div>
+
+              {/* //////////////////////////////////////////////////////////////////////// */}
+
               {/* -----  type------   */}
-              <div>
-                <h3 className={css.filtersEquipBoxTitle}>Vehicle type</h3>
-                <hr className={css.line} />
-                <div className={css.equipmentType}>
-                  <label className={css.equipmentValue}>
-                    <Field type="radio" name="form" value="alcove" />
-                    Alcove
-                    {/* <svg width="32" height="32">
-                      <use href="/icons.svg#icon-alcove"></use>
-                    </svg> */}
-                  </label>
 
-                  <label className={css.equipmentValue}>
-                    <Field type="radio" name="form" value="panelTruck" />
-                    Panel Truck
-                  </label>
-                  <label className={css.equipmentValue}>
-                    <Field type="radio" name="form" value="fullyIntegrated" />
-                    Fully Integrated
-                  </label>
-                </div>
+              {/* //////////////////////////////////////////////////////////////////////// */}
+              <h4 className={css.filtersTitle}>Vehicle type</h4>
+              <hr className={css.line} />
+
+              <div className={css.typeGrid}>
+                {[
+                  { value: 'van', label: 'Van', icon: 'van' },
+                  {
+                    value: 'fullyIntegrated',
+                    label: 'Fully Integrated',
+                    icon: 'fully',
+                  },
+                  { value: 'panelTruck', label: 'Alcove', icon: 'alcove' },
+                ].map(type => (
+                  <Field name="form" key={type.value}>
+                    {({ form }: FieldProps) => {
+                      const isActive = form.values.form === type.value;
+                      return (
+                        <button
+                          type="button"
+                          className={`${css.typeCard} ${isActive ? css.active : ''}`}
+                          onClick={() => {
+                            const newValue = isActive ? '' : type.value;
+                            form.setFieldValue('form', newValue);
+                          }}
+                        >
+                          <svg width="32" height="32">
+                            <use href={`/icons.svg#icon-${type.icon}`} />
+                          </svg>
+                          <span className={css.typeLabel}>{type.label}</span>
+                        </button>
+                      );
+                    }}
+                  </Field>
+                ))}
               </div>
+
+              {/* //////////////////////////////////////////////////////////////////////// */}
             </div>
 
             <button type="submit" className={css.btnSearch}>
-              {loading ? "Searching..." : "Search"}
+              {loading ? 'Searching...' : 'Search'}
             </button>
           </Form>
         </Formik>
@@ -247,7 +246,7 @@ const AllFilters = ({
             disabled={loading}
             className={css.btnLoadMore}
           >
-            {loading ? "Loading..." : "Load More"}
+            {loading ? 'Loading...' : 'Load More'}
           </button>
         )}
       </div>

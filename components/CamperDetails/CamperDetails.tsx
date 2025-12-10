@@ -44,7 +44,7 @@ const CamperDetails = ({ id }: Props) => {
             </p>
             <p>🗺{camper.location}</p>
           </div>
-          <p className={css.campPrice}>€{camper.price}</p>
+          <p className={css.campPrice}>€{camper.price.toFixed(2)}</p>
         </div>
         <div className={css.campGallery}>
           {camper.gallery.map((img, index) => (
