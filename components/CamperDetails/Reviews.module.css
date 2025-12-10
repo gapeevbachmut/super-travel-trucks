@@ -9,6 +9,10 @@
     margin-bottom: 4px;
 }
 
+.reviewBox {
+    display: flex;
+}
+
 .comment {
     font-family: var(--font-family);
     font-weight: 400;
@@ -17,4 +21,27 @@
     color: var(--text);
     margin-top: 16px;
     margin-bottom: 44px;
+}
+
+.nameAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-color: var(--badges);
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    color: var(--color-button);
+    margin-right: 16px;
+}
+
+.wrapperNameStar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -5,12 +5,6 @@ type Props = { camper: Camper };
 
 const Features = ({ camper }: Props) => {
   return (
-    // <div>
-    //   <h1>Features</h1>
-    //   <p>{camper.form}</p>
-    //   <p>🚗 {camper.transmission}</p>
-    //   <p>⛽{camper.engine}</p>
-    // </div>
     <div className={css.detailsWrapper}>
       <div className={css.featuresList}>
         {/*  якщо   true  показувати картинку  !!!!! */}

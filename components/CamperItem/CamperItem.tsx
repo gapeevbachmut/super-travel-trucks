@@ -62,8 +62,9 @@ const CamperItem = ({ camper }: Props) => {
               <svg width={16} height={16}>
                 <use href="/icons-2.svg#icon-star"></use>
               </svg>
-              {camper.reviews[0].reviewer_rating}({camper.reviews.length}
-              Reviews)
+              <span
+                className={css.metaStat}
+              >{`${camper.rating ?? 0}(${camper.reviews.length ?? 0} Reviews)`}</span>
             </p>
             <p>
               <svg width={20} height={20}>
