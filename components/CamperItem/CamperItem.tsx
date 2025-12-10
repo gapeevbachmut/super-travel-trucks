@@ -41,7 +41,17 @@ const CamperItem = ({ camper }: Props) => {
                 onClick={toggleFavorite}
                 className={css.itemLike}
               >
-                {isFav ? '🤎' : '🤍'}
+                {/* {isFav ? '🤎' : '🤍'} */}
+
+                {isFav ? (
+                  <svg width={16} height={16}>
+                    <use href="/icons-2.svg#icon-heart-red"></use>
+                  </svg>
+                ) : (
+                  <svg width={16} height={16}>
+                    <use href="/icons-2.svg#icon-heart-black"></use>
+                  </svg>
+                )}
               </button>
             </div>
 
@@ -49,7 +59,10 @@ const CamperItem = ({ camper }: Props) => {
           </div>
           <div className={css.itemRewLocBox}>
             <p>
-              ⭐{camper.reviews[0].reviewer_rating}({camper.reviews.length}
+              <svg width={16} height={16}>
+                <use href="/icons-2.svg#icon-star"></use>
+              </svg>
+              {camper.reviews[0].reviewer_rating}({camper.reviews.length}
               Reviews)
             </p>
             <p>

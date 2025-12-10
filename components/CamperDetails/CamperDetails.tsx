@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { getOneCamper } from "@/lib/api";
-import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
-import css from "./CamperDetails.module.css";
-import Features from "./Features";
-import Reviews from "./Reviews";
-import BookingForm from "./BookingForm";
-import { useState } from "react";
+import { getOneCamper } from '@/lib/api';
+import { useQuery } from '@tanstack/react-query';
+import Image from 'next/image';
+import css from './CamperDetails.module.css';
+import Features from './Features';
+import Reviews from './Reviews';
+import BookingForm from './BookingForm';
+import { useState } from 'react';
 
 type Props = {
   id: string;
@@ -19,13 +19,13 @@ const CamperDetails = ({ id }: Props) => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["camper", id],
+    queryKey: ['camper', id],
     queryFn: () => getOneCamper(id),
     refetchOnMount: false,
   });
 
-  const [activeTab, setActiveTab] = useState<"features" | "reviews">(
-    "features"
+  const [activeTab, setActiveTab] = useState<'features' | 'reviews'>(
+    'features'
   ); // слідкувати клік по кнопці
 
   if (isLoading) return <p>Loading...</p>;
@@ -39,10 +39,18 @@ const CamperDetails = ({ id }: Props) => {
           <h2 className={css.campTitle}>{camper.name}</h2>
           <div className={css.campRewLocBox}>
             <p>
-              ⭐{camper.reviews[0].reviewer_rating}({camper.reviews.length}
+              <svg width={16} height={16}>
+                <use href="/icons-2.svg#icon-star"></use>
+              </svg>
+              {camper.reviews[0].reviewer_rating}({camper.reviews.length}
               Reviews)
             </p>
-            <p>🗺{camper.location}</p>
+            <p>
+              <svg width={16} height={16}>
+                <use href="/icons.svg#icon-Map"></use>
+              </svg>{' '}
+              {camper.location}
+            </p>
           </div>
           <p className={css.campPrice}>€{camper.price.toFixed(2)}</p>
         </div>
@@ -55,7 +63,7 @@ const CamperDetails = ({ id }: Props) => {
                 width={320}
                 height={200}
                 className={css.campImg}
-                loading={index === 0 ? "eager" : "lazy"}
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
@@ -67,9 +75,9 @@ const CamperDetails = ({ id }: Props) => {
         {/*  кнопки перемикання  опис - відгук  */}
         <div className={css.btnBox}>
           <button
-            onClick={() => setActiveTab("features")}
+            onClick={() => setActiveTab('features')}
             className={
-              activeTab === "features"
+              activeTab === 'features'
                 ? `${css.btnBoxBtn} ${css.active}`
                 : css.btnBoxBtn
             }
@@ -77,9 +85,9 @@ const CamperDetails = ({ id }: Props) => {
             Features
           </button>
           <button
-            onClick={() => setActiveTab("reviews")}
+            onClick={() => setActiveTab('reviews')}
             className={
-              activeTab === "reviews"
+              activeTab === 'reviews'
                 ? `${css.btnBoxBtn} ${css.active}`
                 : css.btnBoxBtn
             }
@@ -91,8 +99,8 @@ const CamperDetails = ({ id }: Props) => {
         <div className={css.infoBox}>
           {/* // те що відмальовується */}
           <div className={css.containerFeatRev}>
-            {activeTab === "features" && <Features camper={camper} />}
-            {activeTab === "reviews" && <Reviews camper={camper} />}
+            {activeTab === 'features' && <Features camper={camper} />}
+            {activeTab === 'reviews' && <Reviews camper={camper} />}
           </div>
 
           {/* ФОРМА */}

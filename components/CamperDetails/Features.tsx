@@ -1,5 +1,5 @@
-import { Camper } from "@/types/camper";
-import css from "./Features.module.css";
+import { Camper } from '@/types/camper';
+import css from './Features.module.css';
 
 type Props = { camper: Camper };
 
@@ -13,30 +13,67 @@ const Features = ({ camper }: Props) => {
     // </div>
     <div className={css.detailsWrapper}>
       <div className={css.featuresList}>
-        <div className={css.featureItem}>
-          <span className={css.featureIcon}>⚙️</span>
-          <span>{camper.transmission}</span>
-        </div>
-
-        <div className={css.featureItem}>
-          <span className={css.featureIcon}>❄️</span>
-          <span>{camper.AC}</span>
-        </div>
-
-        <div className={css.featureItem}>
-          <span className={css.featureIcon}>⛽</span>
-          <span>{camper.engine}</span>
-        </div>
-
-        <div className={css.featureItem}>
-          <span className={css.featureIcon}>☕</span>
-          <span>{camper.kitchen}</span>
-        </div>
-
-        <div className={css.featureItem}>
-          <span className={css.featureIcon}>📻</span>
-          <span>{camper.radio}</span>
-        </div>
+        {/*  якщо   true  показувати картинку  !!!!! */}
+        <p className={css.featureItem}>
+          <svg width={20} height={20}>
+            <use href="/icons.svg#icon-transmission"></use>
+          </svg>{' '}
+          {camper.transmission}
+        </p>
+        <p className={css.featureItem}>
+          <svg width={20} height={20}>
+            <use href="/icons.svg#icon-engine"></use>
+          </svg>{' '}
+          {camper.engine}
+        </p>
+        {camper.AC === true && (
+          <p className={css.featureItem}>
+            <svg width={20} height={20}>
+              <use href="/icons.svg#icon-AC"></use>
+            </svg>{' '}
+            AC
+          </p>
+        )}
+        {camper.kitchen === true && (
+          <p className={css.featureItem}>
+            <svg width={20} height={20}>
+              <use href="/icons.svg#icon-kitchen"></use>
+            </svg>{' '}
+            Kitchen
+          </p>
+        )}
+        {camper.bathroom === true && (
+          <p className={css.featureItem}>
+            <svg width={20} height={20}>
+              <use href="/icons.svg#icon-bathroom"></use>
+            </svg>{' '}
+            Bathroom
+          </p>
+        )}
+        {camper.TV === true && (
+          <p className={css.featureItem}>
+            <svg width={20} height={20}>
+              <use href="/icons.svg#icon-TV"></use>
+            </svg>{' '}
+            TV
+          </p>
+        )}
+        {camper.radio === true && (
+          <p className={css.featureItem}>
+            <svg width={20} height={20}>
+              <use href="/icons.svg#icon-radio"></use>
+            </svg>{' '}
+            Radio
+          </p>
+        )}
+        {camper.refrigerator === true && (
+          <p className={css.featureItem}>
+            <svg width={20} height={20}>
+              <use href="/icons.svg#icon-refrigerator"></use>
+            </svg>{' '}
+            Fridge
+          </p>
+        )}
       </div>
       {/* /////////////////////////////////////////////////////////// */}
       <div>
