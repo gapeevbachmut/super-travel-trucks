@@ -1,11 +1,14 @@
 .footer {
     color: var(--gray);
-    margin-top: 100px;
     margin-bottom: 20px;
 }
 
-/* переробити на приклеєний футер */
-.content {
-    display: flex;
-    gap: 150px;
+
+@media (min-width:768px) {
+
+
+    .content {
+        display: flex;
+        gap: 150px;
+    }
 }

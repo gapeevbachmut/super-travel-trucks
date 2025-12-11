@@ -1,35 +1,37 @@
 .homeContainer {
-    width: 1440px;
+    width: 374px;
+    border: dashed 2px black;
     height: 696px;
-
 }
 
 .home {
     background-image: url('/mainPage/Picture.png');
+    background-repeat: no-repeat;
+    background-position: top 0 left -720px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 64px;
+    padding: 34px;
 }
 
 .homeTitle {
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 48px;
-    line-height: 67%;
+    line-height: 100%;
     color: var(--inputs);
 }
 
 .homeText {
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 133%;
     color: var(--inputs);
     margin-top: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 140px;
 }
 
 .homeBtn {
@@ -65,4 +67,40 @@
 
 .gluedFooterMain {
     flex-grow: 1;
+}
+
+/* ////////////////////////// */
+
+@media(min-width:768px) {
+    .homeContainer {
+        /* width: 1440px; */
+        width: 768px;
+        border: dashed 2px blue;
+    }
+
+    .home {
+        background-position: top 0 left -520px;
+    }
+
+    .homeTitle {
+        line-height: 67%;
+    }
+
+    .homeText {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+}
+
+@media(min-width:1440px) {
+    .home {
+        background-position: top 0 left 0;
+    }
+
+    .homeContainer {
+        width: 1440px;
+
+    }
+
+
 }
