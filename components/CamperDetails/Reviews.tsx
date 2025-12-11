@@ -19,11 +19,11 @@ const Reviews = ({ camper }: Props) => {
                   {Array.from({ length: 5 }).map((_, i) => {
                     const diff = (review.reviewer_rating ?? 0) - i;
                     return diff > 0 ? (
-                      <svg width={16} height={16}>
+                      <svg key={i} width={16} height={16}>
                         <use href="/icons-2.svg#icon-star"></use>
                       </svg>
                     ) : (
-                      <svg width={16} height={16}>
+                      <svg key={i} width={16} height={16}>
                         <use href="/icons-2.svg#icon-star-empty"></use>
                       </svg>
                     );

@@ -1,11 +1,34 @@
-import Link from "next/link";
+import { Metadata } from 'next';
+import Link from 'next/link';
+import css from './NotFound.module.css';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+export const metadata: Metadata = {
+  title: `404 - Campify: Page not found`,
+  description: 'Page not found',
+  openGraph: {
+    title: `404 - Campify: Page not found`,
+    description: 'Page not found',
+    url: SITE_URL,
+    siteName: 'Campify',
+    type: 'website',
+  },
+};
 
 const NotFound = () => {
   return (
-    <div>
-      <h1>404 - Page Not Found</h1>
-      <p>Sorry, the page you&#39;re looking for doesn&#39;t exist.</p>
-      <Link href="/">Go back home</Link>
+    <div className="container">
+      <div className={css.NotFoundContainer}>
+        <h1 className={css.NotFoundTitle}>OOPS!!!</h1>
+        <p className={css.NotFoundTitle}>You have a problem!</p>
+        <p className={css.NotFoundTitle}>404</p>
+        <h3 className={css.NotFoundDescr}>Page not found</h3>
+        <p className={css.NotFoundText}>Try again.</p>
+        <Link href="/" className={css.NotFoundLink}>
+          Home Page
+        </Link>
+      </div>
     </div>
   );
 };
