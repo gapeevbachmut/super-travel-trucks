@@ -1,7 +1,16 @@
-import css from "./Header.module.css";
-import Link from "next/link";
+'use client';
+
+import css from './Header.module.css';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
+  // const router = useRouter(); // Отримуємо об'єкт маршрутизатора
+  const currentPath = usePathname(); // Отримуємо поточний шлях сторінки
+
+  // Визначаємо шляхи
+  const homePath = '/';
+  const catalogPath = '/catalog';
   return (
     <header className={css.header}>
       <div className={css.logo}>
@@ -15,10 +24,20 @@ const Header = () => {
       <nav className={css.headerNav}>
         <ul className={css.navigation}>
           <li className={css.navigationHome}>
-            <Link href="/">Home</Link>
+            <Link
+              href={homePath}
+              className={currentPath === homePath ? css.activeLink : ''}
+            >
+              Home
+            </Link>
           </li>
           <li className={css.navigationCatalog}>
-            <Link href="/catalog">Catalog</Link>
+            <Link
+              href={catalogPath}
+              className={currentPath === catalogPath ? css.activeLink : ''}
+            >
+              Catalog
+            </Link>
           </li>
         </ul>
       </nav>

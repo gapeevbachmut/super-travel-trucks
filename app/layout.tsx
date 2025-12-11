@@ -7,6 +7,7 @@ import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
+import css from './page.module.css';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
@@ -43,9 +44,11 @@ export default function RootLayout({
       <body>
         <TanStackProvider>
           <Suspense fallback={<Loading />}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <div className={css.gluedFooterContainer}>
+              <Header />
+              <main className={css.gluedFooterMain}>{children}</main>
+              <Footer />
+            </div>
           </Suspense>
 
           <Toaster position="top-center" reverseOrder={false} />
