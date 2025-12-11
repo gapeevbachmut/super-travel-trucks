@@ -48,9 +48,13 @@
     color: var(--gray);
 }
 
-.fieldContainer .textarea {
+/* .fieldContainer .textarea {
     height: 118px;
     font-size: 16px;
+} */
+.textarea {
+    resize: none;
+    height: 118px;
 }
 
 .submitButton {

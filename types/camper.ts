@@ -17,25 +17,25 @@ export type Camper = {
   location: string;
   description: string;
 
-  form: string; // van1*2  //fully - grid //alcove -3*3
+  form: string;
   length: string;
   width: string;
   height: string;
   tank: string;
   consumption: string;
 
-  transmission: string; //diagram
-  engine: string; //fuel
+  transmission: string;
+  engine: string;
 
-  AC: boolean; //wind
-  bathroom: boolean; //shower
-  kitchen: boolean; //cup-hot
-  TV: boolean; //tv
-  radio: boolean; //radio
-  refrigerator: boolean; //fridge
-  microwave: boolean; //micro
-  gas: boolean; //gas
-  water: boolean; //water
+  AC: boolean;
+  bathroom: boolean;
+  kitchen: boolean;
+  TV: boolean;
+  radio: boolean;
+  refrigerator: boolean;
+  microwave: boolean;
+  gas: boolean;
+  water: boolean;
 
   gallery: CamperGalleryItem[];
   reviews: CamperReview[];

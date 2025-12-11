@@ -120,16 +120,13 @@
     mix-blend-mode: multiply;
 }
 
-.itemLink {
-    width: 166px;
-    height: 56px;
-}
+
 
 .btnShowMore {
     background-color: var(--button);
     border-radius: 200px;
-    width: 100%;
-    height: 100%;
+    width: 166px;
+    height: 56px;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;

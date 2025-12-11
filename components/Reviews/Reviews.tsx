@@ -41,34 +41,3 @@ const Reviews = ({ camper }: Props) => {
 };
 
 export default Reviews;
-//////////////////////////////////////////////////
-//  <ul className={css.reviewList}>
-//    {reviews.map((item: CamperReview, index) => {
-//      return (
-//        <li key={item.reviewer_name + index} className={css.reviewCard}>
-//          <div className={css.reviewHeader}>
-//            <div className={css.avatar}>
-//              {item.reviewer_name.charAt(0).toUpperCase()}
-//            </div>
-
-//            <div className={css.headerInfo}>
-//              <p className={css.name}>{item.reviewer_name}</p>
-
-//              <div className={css.stars}>
-//                {Array.from({ length: 5 }).map((_, i) => {
-//                  const diff = (item.reviewer_rating ?? 0) - i;
-//                  return diff > 0 ? (
-//                    <IconComponent key={i} name="star-filled" size={16} />
-//                  ) : (
-//                    <IconComponent key={i} name="star" size={16} />
-//                  );
-//                })}
-//              </div>
-//            </div>
-//          </div>
-
-//          <p className={css.comment}>{item.comment}</p>
-//        </li>
-//      );
-//    })}
-//  </ul>;

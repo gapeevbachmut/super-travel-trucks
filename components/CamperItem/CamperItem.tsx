@@ -33,7 +33,7 @@ const CamperItem = ({ camper }: Props) => {
       <div className={css.itemDescr}>
         <div className={css.itemDescrThumb}>
           <div className={css.itemTitleBox}>
-            <p className={css.itemTitle}>{camper.name}</p>
+            <h2 className={css.itemTitle}>{camper.name}</h2>
             <div className={css.itemPrLikBox}>
               <p className={css.itemPrice}>€{camper.price.toFixed(2)}</p>
               <button
@@ -54,8 +54,6 @@ const CamperItem = ({ camper }: Props) => {
                 )}
               </button>
             </div>
-
-            {/* ----- на серце,  зірку,  карту поставити    -   svg   !!!!! */}
           </div>
           <div className={css.itemRewLocBox}>
             <p>
@@ -138,12 +136,11 @@ const CamperItem = ({ camper }: Props) => {
             )}
           </div>
         </div>
-        {/* лінк у бтн !!!  - підправити стилі!!!*/}
-        <Link href={`/catalog/${camper.id}`} className={css.itemLink}>
-          <button type="button" className={css.btnShowMore}>
+        <button type="button" className={css.btnShowMore}>
+          <Link href={`/catalog/${camper.id}`} className={css.itemLink}>
             Show more
-          </button>
-        </Link>
+          </Link>
+        </button>
       </div>
     </li>
   );

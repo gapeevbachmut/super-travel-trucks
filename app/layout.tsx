@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     title: 'Travel Trucks — Camper Van Rentals in Ukraine',
     description:
       'Plan your trip with Travel Trucks. You can find everything you want in our catalog!',
-    url: SITE_URL,
     siteName: 'Travel Trucks',
     type: 'website',
     images: [

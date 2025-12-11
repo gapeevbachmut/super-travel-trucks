@@ -4,9 +4,9 @@ import { getOneCamper } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import css from './CamperDetails.module.css';
-import Features from './Features';
-import Reviews from './Reviews';
-import BookingForm from './BookingForm';
+import Features from '../Features/Features';
+import Reviews from '../Reviews/Reviews';
+import BookingForm from '../BookingForm/BookingForm';
 import { useState } from 'react';
 
 type Props = {
