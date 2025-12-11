@@ -1,6 +1,5 @@
 .homeContainer {
     width: 374px;
-    border: dashed 2px black;
     height: 696px;
 }
 
@@ -75,7 +74,6 @@
     .homeContainer {
         /* width: 1440px; */
         width: 768px;
-        border: dashed 2px blue;
     }
 
     .home {
