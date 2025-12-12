@@ -1,14 +1,29 @@
-The goal of the project is to create the front-end part of a web application for TravelTrucks, a company that rents campers. The web application should include several pages, including a home page, a catalog page, and a page for each individual camper with reviews and a booking form.
+# TravelTrucks — Front-End Web Application
 
-Usage
+![Tech Stack](https://img.shields.io/badge/Tech%20Stack-Next.js%20%7C%20React%20%7C%20TypeScript-blue)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)
+![License](https://img.shields.io/badge/License-Educational-yellow)
 
-Available Commands
+The goal of the project is to create the front-end part of a web application for **TravelTrucks**, a company that rents campers.
+
+The application includes:
+- a **home page**
+- a **catalog page**
+- **individual camper pages** with reviews and a booking form
+
+---
+
+## 🚀 Usage
+
+### Available Commands
+
+```bash
 npm run dev        — start development server
 npm run build      — build project for production
 npm run start      — run production build
 npm run lint       — check code with linter
 
-Project Structure
+### Project Structure
 
 web-application-travel-trucks/
 ├── app/                                  * Next.js App Router pages
@@ -43,35 +58,25 @@ web-application-travel-trucks/
 
 
 
+### Main Pages
+Route	Description
+/	Home page with welcome section
+/catalog	Camper catalog with filters
+/catalog/[id]	Detailed camper information
 
-Main Pages
 
-/ — Home page with welcome section
-
-/catalog — Camper catalog with filters
-
-/catalog/[id] — Detailed camper information
-
-Deployment
+### Deployment
 
 The project is optimized for deployment on Vercel:
-
 Connect your GitHub repository to Vercel
-
 Configure environment variables
-
 Vercel will automatically build and deploy your project
+Alternatively, you may use any hosting platform supporting Node.js.
 
-Alternatively, you can use any hosting platform that supports Node.js.
+###  Author
 
-Author
+HAPIEIEV ANDRII
 
-......
-LinkedIn: (приховано)
-GitHub: (приховано)
-
-License
+### License
 
 This project was created for educational purposes.
-
-Happy travels with TravelTrucks! 🚐🌟
