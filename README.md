@@ -13,11 +13,20 @@ The goal of the project is to create the front-end part of a web application for
 *******************************************************************************
 
 ## The application includes:
+
 - a **home page**
 - a **catalog page**
 - **individual camper pages** with reviews and a booking form
 
----
+
+## Responsiveness
+### The project has an adaptive layout for:
+```bash
+The project has an adaptive layout for:
+- mobile devices from 375px
+- tablets from 768px
+- desktops from 1440px
+```
 
 ##  Usage
 
