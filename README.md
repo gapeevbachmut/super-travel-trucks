@@ -36,8 +36,11 @@ npm run lint       — check code with linter
 web-application-travel-trucks/
 ├── app/                                  * Next.js App Router pages
 │   ├── catalog/                          * Catalog page
-│   │   ├── NotFound.module.css           * Styles for not-found catalog state
+|   |   ├── [id]
+|   |   |    └── page.tsx                 * Camper page by `id`      
+│   │   ├── pageCatalog.module.css        * Styles for catalog page
 │   │   └── page.tsx                      * Catalog main page
+|   ├── NotFound.module.css               * Styles for not-found catalog state
 │   ├── error.tsx                         * Global error boundary
 │   ├── globals.css                       * Global styles
 │   ├── layout.tsx                        * Root layout component
