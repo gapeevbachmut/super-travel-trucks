@@ -6,11 +6,12 @@
 
 ![License](https://img.shields.io/badge/License-Educational-yellow)
 
+The goal of the project is to create the front-end part of a web application for
+**TravelTrucks**, a company that rents campers. The web application should
+include several pages, including a home page, a catalog page, and a page for
+each individual camper with reviews and a booking form.
 
-The goal of the project is to create the front-end part of a web application for **TravelTrucks**, a company that rents campers. The web application should include several pages, including a home page, a catalog page, and a page for each individual camper with reviews and a booking form.
-
-
-*******************************************************************************
+---
 
 ## The application includes:
 
@@ -18,9 +19,10 @@ The goal of the project is to create the front-end part of a web application for
 - a **catalog page**
 - **individual camper pages** with reviews and a booking form
 
-
 ## Responsiveness
+
 ### The project has an adaptive layout for:
+
 ```bash
 The project has an adaptive layout for:
 - mobile devices from 375px
@@ -28,7 +30,7 @@ The project has an adaptive layout for:
 - desktops from 1440px
 ```
 
-##  Usage
+## Usage
 
 ### Available Commands
 
@@ -39,15 +41,14 @@ npm run start      — run production build
 npm run lint       — check code with linter
 ```
 
-
 ### Project Structure
+
 ```bash
 web-application-travel-trucks/
 ├── app/                                  * Next.js App Router pages
 │   ├── catalog/                          * Catalog page
 |   |   ├── [id]
-|   |   |    └── page.tsx                 * Camper page by `id`      
-│   │   ├── pageCatalog.module.css        * Styles for catalog page
+|   |   |    └── page.tsx                 * Camper page by `id`
 │   │   └── page.tsx                      * Catalog main page
 |   ├── NotFound.module.css               * Styles for not-found catalog state
 │   ├── error.tsx                         * Global error boundary
@@ -59,27 +60,16 @@ web-application-travel-trucks/
 │   └── page.tsx                          * Home page
 │
 ├── components/                           * Shared React components
-│   ├── BookingDatePicker/                * Date picker for booking
-│   ├── BookingForm/                      * Camper booking form
-│   ├── CamperDetails/                    * Detailed camper info components
-│   ├── CamperItem/                       * Camper card component
-│   ├── CamperList/                       * Camper list rendering
-│   ├── Features/                         * Camper features section
-│   ├── Filters/                          * Catalog filters
-│   ├── Footer/                           * Footer component
-│   ├── Header/                           * Navigation header
-│   ├── Reviews/                          * Camper reviews components
-│   └── TanStackProvider/                 * React Query / TanStack provider
-│
 ├── lib/                                  * Utilities and helper functions
 ├── public/                               * Static assets (images, icons)
 ├── store/                                * Zustand store (state management)
 ├── types/                                * TypeScript type definitions
 ```
 
-
 ### Main Pages
-Route	Description
+
+Route Description
+
 ```bash
 `/`             	Home page with welcome section
 `/catalog`	        Camper catalog with filters
@@ -87,6 +77,7 @@ Route	Description
 ```
 
 ### Deployment
+
 ```bash
 The project is optimized for deployment on Vercel:
 Connect your GitHub repository to Vercel
@@ -94,11 +85,15 @@ Configure environment variables
 Vercel will automatically build and deploy your project
 Alternatively, you may use any hosting platform supporting Node.js.
 ```
-###  Author
+
+### Author
+
 ```bash
 HAPIEIEV ANDRII
 ```
+
 ### License
+
 ```bash
 This project was created for educational purposes.
 ```
