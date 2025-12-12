@@ -45,3 +45,26 @@ export const useCamperStore = create<CamperState>()(
     }
   )
 );
+
+/////////////////////////////////////
+// Як використовувати модалку в компоненті
+
+// const { isModalOpen, setIsModalOpen } = useCamperStore();
+
+// const openModal = () => setIsModalOpen(true);
+// const closeModal = () => setIsModalOpen(false);
+
+////////////////////     OR      ////
+//   const openModal = useCamperStore((state) => state.openModal);
+//   const closeModal = useCamperStore((state) => state.closeModal);
+
+////////////////////////////////////////////////////////
+
+// Приклад використання
+// <button onClick={openModal}>Open modal</button>
+
+// {isModalOpen && (
+//   <Modal onClose={closeModal}>
+//     <h2>Привіт, я модалка!</h2>
+//   </Modal>
+// )}

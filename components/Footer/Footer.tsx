@@ -15,7 +15,7 @@ const Footer = () => {
           </p>
         </div>
         {/* <p>© {new Date().getFullYear()} All rights reserved.</p> */}
-        <p>© 2025 All rights reserved.</p>
+        <p>© 2025 - {new Date().getFullYear()} All rights reserved.</p>
       </div>
     </footer>
   );
