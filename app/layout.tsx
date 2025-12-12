@@ -50,7 +50,6 @@ export default function RootLayout({
               <Footer />
             </div>
           </Suspense>
-
           <Toaster position="top-center" reverseOrder={false} />
         </TanStackProvider>
       </body>

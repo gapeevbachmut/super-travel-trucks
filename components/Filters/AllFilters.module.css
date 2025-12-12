@@ -2,6 +2,8 @@
     margin: 48px 64px;
     display: flex;
     gap: 64px;
+    width: 1440px;
+    background-color: var(--white);
 }
 
 .filters {
