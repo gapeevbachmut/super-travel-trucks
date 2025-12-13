@@ -2,18 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import css from './NotFound.module.css';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
 export const metadata: Metadata = {
-  title: `404 - Campify: Page not found`,
+  title: `404 - TravelTrucks: Page not found`,
   description: 'Page not found',
-  openGraph: {
-    title: `404 - Campify: Page not found`,
-    description: 'Page not found',
-    url: SITE_URL,
-    siteName: 'Campify',
-    type: 'website',
-  },
 };
 
 const NotFound = () => {

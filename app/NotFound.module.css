@@ -15,6 +15,10 @@
     border-radius: 12px;
     background-color: var(--gray-light);
     border: solid, 2px #d84343;
+
+
+    box-shadow: inset -32px -32px 64px #be3b3b,
+        inset 32px 32px 64px #f24b4b;
 }
 
 .NotFoundTitle {
@@ -47,22 +51,22 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
-    color: var(--color-neutral-darkest);
-    border: 1px solid var(--color-deco);
+    color: var(--text);
+    border: 1px solid var(--gray);
     border-radius: 100px;
     padding: 6px 12px;
-    background-color: var(--color-deco);
+    background-color: var(--gray-light);
 }
 
 .NotFoundLink:hover {
-    background-color: var(--color-deco-dark);
-    border: 1px solid var(--color-deco-darker);
+    background-color: var(--button-hover);
+    border: 1px solid var(--button);
     transform: scale(1.03);
 }
 
 .NotFoundLink:active {
-    background-color: var(--color-deco-darkest);
-    border: 1px solid var(--color-deco);
+    background-color: var(--gray);
+    border: 1px solid var(--gray-light);
     transform: scale(1.03);
 }
 

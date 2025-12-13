@@ -9,8 +9,6 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import css from './page.module.css';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
 export const metadata: Metadata = {
   title: 'Travel-Trucks',
   description: 'Campers of your dreams',
@@ -22,10 +20,11 @@ export const metadata: Metadata = {
     description:
       'Plan your trip with Travel Trucks. You can find everything you want in our catalog!',
     siteName: 'Travel Trucks',
+    url: 'https://super-travel-trucks.vercel.app',
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/mainPage/camper.jpg`,
+        url: `https://res.cloudinary.com/dyounr2tf/image/upload/v1765635239/camper_h8hqhm.jpg`,
         width: 1200,
         height: 630,
         alt: 'Travel Trucks',

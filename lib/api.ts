@@ -1,6 +1,6 @@
-import { type Camper } from "@/types/camper";
-import { type CamperFilters } from "@/types/filters";
-import axios from "axios";
+import { type Camper } from '@/types/camper';
+import { type CamperFilters } from '@/types/filters';
+import axios from 'axios';
 
 export type CamperListResponse = {
   total: number;
@@ -10,8 +10,8 @@ export type CamperListResponse = {
 // axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
 const api = axios.create({
-  baseURL: "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io",
-  headers: { "Content-Type": "application/json" },
+  baseURL: 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io',
+  headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 });
 
@@ -22,7 +22,7 @@ export const getCampers = async (
 ) => {
   const params: CamperFilters = { page, limit, ...filters };
 
-  const responce = await api.get<CamperListResponse>("/campers", {
+  const responce = await api.get<CamperListResponse>('/campers', {
     params,
   });
 
@@ -38,12 +38,12 @@ export const getOneCamper = async (id: string) => {
   return response.data;
 };
 
-// локації
+// локації - окремий запит для отримання усіх локацій
 export const getAllLocations = async () => {
-  const data = await api.get<CamperListResponse>("/campers", {
+  const data = await api.get<CamperListResponse>('/campers', {
     params: { limit: 100 },
   });
   const list = data.data.items;
   // console.log("data", data.data.items);
-  return Array.from(new Set(list.map((c) => c.location)));
+  return Array.from(new Set(list.map(c => c.location)));
 };
