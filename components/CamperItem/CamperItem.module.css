@@ -192,7 +192,12 @@
         border-radius: 10px;
         width: 380px;
         height: 322px;
+    }
 
+    .itemImg {
+        width: auto;
+        height: 100%;
+        margin-left: -120px;
     }
 
     .itemDescr {
