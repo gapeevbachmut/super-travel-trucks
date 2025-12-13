@@ -14,11 +14,14 @@
 .modal {
     position: relative;
     max-width: 90vw;
-    max-height: 90vh;
+    max-height: 90%;
     border-radius: 8px;
     background-color: #fff;
     padding: 24px;
+    overflow: auto;
 }
+
+
 
 .closeButton {
     position: absolute;

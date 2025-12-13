@@ -26,12 +26,12 @@ export default function Modal({ onClose, children }: ModalProps) {
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    // document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
     // заборона скролу не працює - перероблено на   hooks/useScrollLock.ts
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      // document.body.style.overflow = '';
+      document.body.style.overflow = '';
     };
   }, [onClose]);
   return createPortal(

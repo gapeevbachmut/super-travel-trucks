@@ -10,10 +10,14 @@ import Loading from './loading';
 import css from './page.module.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://super-travel-trucks.vercel.app'),
   title: 'Travel-Trucks',
   description: 'Campers of your dreams',
   icons: {
     icon: '/favicon.png',
+  },
+  alternates: {
+    canonical: '/',
   },
   openGraph: {
     title: 'Travel Trucks — Camper Van Rentals in Ukraine',

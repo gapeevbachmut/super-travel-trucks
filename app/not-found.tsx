@@ -1,11 +1,7 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
 import css from './NotFound.module.css';
-
-export const metadata: Metadata = {
-  title: `404 - TravelTrucks: Page not found`,
-  description: 'Page not found',
-};
 
 const NotFound = () => {
   return (
