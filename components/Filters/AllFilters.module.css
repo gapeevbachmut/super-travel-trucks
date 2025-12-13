@@ -148,6 +148,12 @@
     background-color: var(--button-hover);
 }
 
+@media (max-width:768px) {
+    .btnSearch {
+        margin-bottom: 50px;
+    }
+}
+
 @media (min-width:768px) {
     .filters {
         width: 300px;

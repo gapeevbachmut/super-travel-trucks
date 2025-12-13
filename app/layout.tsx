@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
 import css from './page.module.css';
+import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://super-travel-trucks.vercel.app'),
@@ -55,6 +56,7 @@ export default function RootLayout({
           </Suspense>
           <Toaster position="top-center" reverseOrder={false} />
         </TanStackProvider>
+        <ScrollToTop />
       </body>
     </html>
   );
