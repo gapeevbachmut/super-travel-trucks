@@ -3,6 +3,7 @@
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 import { useEffect } from 'react';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 interface ModalProps {
   onClose: () => void;
@@ -10,6 +11,8 @@ interface ModalProps {
 }
 
 export default function Modal({ onClose, children }: ModalProps) {
+  useScrollLock(true);
+
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
@@ -23,11 +26,11 @@ export default function Modal({ onClose, children }: ModalProps) {
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      // document.body.style.overflow = '';
     };
   }, [onClose]);
   return createPortal(
@@ -46,9 +49,6 @@ export default function Modal({ onClose, children }: ModalProps) {
           &times;
         </button>
         {children}
-        {/* Тут рендериться переданий вміст із пропса children */}
-        <h2>Modal Title</h2>
-        <p>This is some content inside the modal.</p>
       </div>
     </div>,
     document.body

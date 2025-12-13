@@ -18,6 +18,8 @@ type CamperState = {
   //    MODAL
   isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
+  isMobile: boolean;
+  setIsMobile: (value: boolean) => void;
 };
 
 export const useCamperStore = create<CamperState>()(
@@ -38,6 +40,9 @@ export const useCamperStore = create<CamperState>()(
 
       isModalOpen: false,
       setIsModalOpen: value => set({ isModalOpen: value }),
+
+      isMobile: false,
+      setIsMobile: value => set({ isMobile: value }),
     }),
     {
       name: 'traveltrucks-storage', // localStorage key
@@ -45,26 +50,3 @@ export const useCamperStore = create<CamperState>()(
     }
   )
 );
-
-/////////////////////////////////////
-// Як використовувати модалку в компоненті
-
-// const { isModalOpen, setIsModalOpen } = useCamperStore();
-
-// const openModal = () => setIsModalOpen(true);
-// const closeModal = () => setIsModalOpen(false);
-
-////////////////////     OR      ////
-//   const openModal = useCamperStore((state) => state.openModal);
-//   const closeModal = useCamperStore((state) => state.closeModal);
-
-////////////////////////////////////////////////////////
-
-// Приклад використання
-// <button onClick={openModal}>Open modal</button>
-
-// {isModalOpen && (
-//   <Modal onClose={closeModal}>
-//     <h2>Привіт, я модалка!</h2>
-//   </Modal>
-// )}

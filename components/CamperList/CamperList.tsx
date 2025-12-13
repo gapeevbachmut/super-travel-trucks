@@ -10,14 +10,18 @@ type Props = {
 };
 const CamperList = ({ campers, total, loading, onLoadMore }: Props) => {
   return (
-    <div>
+    <div className={css.container}>
       <ul className={css.camperList}>
         {campers.map(camper => (
           <CamperItem key={camper.id} camper={camper} />
         ))}
       </ul>
       {campers.length < total && (
-        <button onClick={onLoadMore} disabled={loading}>
+        <button
+          onClick={onLoadMore}
+          disabled={loading}
+          className={css.btnLoadMore}
+        >
           {loading ? 'Loading...' : 'Load More'}
         </button>
       )}

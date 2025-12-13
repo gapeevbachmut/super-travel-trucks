@@ -1,4 +1,3 @@
-// store/useCatalogStore.ts
 import { create } from 'zustand';
 import { Camper } from '@/types/camper';
 import { CamperFilters } from '@/types/filters';
