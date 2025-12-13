@@ -51,6 +51,7 @@
 @media(min-width:768px) {
     .headerLinks {
         width: 768px;
+        height: 72px;
     }
 
     .logo {
