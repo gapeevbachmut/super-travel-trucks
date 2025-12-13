@@ -1,8 +1,7 @@
 .detailsWrapper {
     border-radius: 10px;
-    padding: 44px 52px;
-    width: 631px;
-    height: 600px;
+    padding: 12px 18px;
+    width: 100%;
     background-color: var(--inputs);
     display: flex;
     flex-direction: column;
@@ -13,12 +12,12 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    margin-bottom: 12px;
 }
 
 .featureItem {
     border-radius: 100px;
-    padding: 12px 0;
-    width: 109px;
+    padding: 12px;
     height: 48px;
     background: var(--badges);
     mix-blend-mode: multiply;
@@ -47,7 +46,7 @@
 .specsTable {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 6px;
 }
 
 .specRow {
@@ -63,4 +62,32 @@
     line-height: 150%;
     text-align: center;
     color: var(--main);
+}
+
+@media (min-width: 768px) {
+    .detailsWrapper {
+        width: 631px;
+        padding: 22px 24px;
+    }
+
+    .featureItem {
+        padding: 12px;
+        height: 48px;
+    }
+
+    .specsTable {
+        gap: 16px;
+    }
+
+
+}
+
+@media (min-width: 1440px) {
+    .detailsWrapper {
+        width: 631px;
+        height: 600px;
+        padding: 44px 52px;
+    }
+
+
 }

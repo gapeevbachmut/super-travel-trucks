@@ -1,8 +1,8 @@
 /*  -----  details          */
 
 .container {
-    width: 1312px;
-    margin-top: 48px;
+    width: 340px;
+    margin-top: 12px;
 }
 
 .campTitle {
@@ -40,15 +40,16 @@
 }
 
 .campGallery {
-    margin-top: 28px;
+    margin-top: 12px;
     display: flex;
-    gap: 48px;
+    flex-direction: column;
+    gap: 12px;
 
 }
 
 .campImgThumb {
-    width: 292px;
-    height: 312px;
+    width: 100%px;
+    height: 200px;
 }
 
 .campImg {
@@ -61,17 +62,16 @@
 .campDescr {
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 150%;
     color: var(--text);
     margin-top: 28px;
 }
 
 .btnBox {
-    margin-top: 62px;
+    margin-top: 40px;
     display: flex;
-    gap: 24px;
-    align-items: flex-start;
+    justify-content: space-around;
 }
 
 .btnBoxBtn {
@@ -111,8 +111,75 @@
 
 .infoBox {
     display: flex;
-    gap: 40px;
-    margin-top: 42px;
-    margin-bottom: 80px;
-    width: 1312px;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    width: 340px;
+}
+
+.containerFeatRev,
+.containerBooking {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 740px;
+        margin-top: 24px;
+    }
+
+    .campGallery {
+        gap: 12px;
+        align-items: center;
+    }
+
+    .campImgThumb {
+        width: 100%;
+        height: 300px;
+    }
+
+    .btnBox {
+        justify-content: space-evenly;
+    }
+
+    .infoBox {
+        gap: 40px;
+        margin-top: 42px;
+        margin-bottom: 80px;
+        width: 740px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 1312px;
+        margin-top: 48px;
+    }
+
+    .campGallery {
+        flex-direction: row;
+        margin-top: 28px;
+        gap: 48px;
+
+    }
+
+    .campImgThumb {
+        width: 292px;
+        height: 312px;
+    }
+
+    .btnBox {
+        margin-top: 62px;
+        gap: 24px;
+        justify-content: flex-start;
+    }
+
+    .infoBox {
+        flex-direction: row;
+        width: 1312px;
+
+    }
 }

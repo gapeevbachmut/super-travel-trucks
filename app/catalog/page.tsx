@@ -21,6 +21,7 @@ const CatalogPage = () => {
   }, [fetchCampers]);
 
   useMediaQuery('(max-width: 767px)');
+  //буде працювати до ки родмір екрану менше за 767
 
   const { isModalOpen, setIsModalOpen, isMobile } = useCamperStore();
 

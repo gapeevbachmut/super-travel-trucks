@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
   return (
-    <div className="container">
+    <div className={css.container}>
       <div className={css.NotFoundContainer}>
         <h1 className={css.NotFoundTitle}>OOPS!!!</h1>
         <p className={css.NotFoundTitle}>You have a problem!</p>
