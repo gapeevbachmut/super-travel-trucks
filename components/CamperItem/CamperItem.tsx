@@ -38,6 +38,7 @@ const CamperItem = ({ camper }: Props) => {
               <p className={css.itemPrice}>€{camper.price.toFixed(2)}</p>
               <button
                 type="button"
+                name="button like"
                 onClick={toggleFavorite}
                 className={css.itemLike}
               >
@@ -136,11 +137,9 @@ const CamperItem = ({ camper }: Props) => {
             )}
           </div>
         </div>
-        <button type="button" className={css.btnShowMore}>
-          <Link href={`/catalog/${camper.id}`} className={css.itemLink}>
-            Show more
-          </Link>
-        </button>
+        <Link href={`/catalog/${camper.id}`} className={css.btnShowMore}>
+          Show more
+        </Link>
       </div>
     </li>
   );

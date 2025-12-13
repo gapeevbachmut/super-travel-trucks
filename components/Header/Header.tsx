@@ -13,7 +13,7 @@ const Header = () => {
     <header className={css.header}>
       <div className={css.headerLinks}>
         <div className={css.logo}>
-          <Link href="/" className={css.link}>
+          <Link href="/" className={css.link} aria-label="Main page">
             <svg width={136} height={16}>
               <use href="/mainPage/logo.svg"></use>
             </svg>
@@ -25,6 +25,7 @@ const Header = () => {
             <li className={css.navigationHome}>
               <Link
                 href={homePath}
+                aria-label="Main page"
                 className={`${css.link} ${currentPath === homePath ? css.activeLink : ''}`}
               >
                 Home
@@ -33,6 +34,7 @@ const Header = () => {
             <li className={css.navigationCatalog}>
               <Link
                 href={catalogPath}
+                aria-label="Catalog page"
                 className={`${css.link} ${currentPath === catalogPath ? css.activeLink : ''}`}
               >
                 Catalog

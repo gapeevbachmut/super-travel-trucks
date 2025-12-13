@@ -57,12 +57,19 @@ const AllFilters = ({ allLocations, onSubmit, loading }: Props) => {
         <Form className={css.form}>
           {/* Location */}
           <div className={css.locationBox}>
-            <label className={css.locationTitle}>Location</label>
+            <label className={css.locationTitle} htmlFor="location">
+              Location
+            </label>
             <svg width="32" height="32" className={css.iconMap}>
               <use href="/icons.svg#icon-Map"></use>
             </svg>
 
-            <Field as="select" name="location" className={css.locationValue}>
+            <Field
+              as="select"
+              name="location"
+              className={css.locationValue}
+              id="location"
+            >
               <option value="" className={css.locationCity}>
                 City
               </option>

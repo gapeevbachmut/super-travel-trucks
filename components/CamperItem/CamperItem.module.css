@@ -32,8 +32,6 @@
 
 }
 
-
-
 .itemTitleBox {
     width: 100%;
     display: flex;
@@ -124,8 +122,6 @@
     mix-blend-mode: multiply;
 }
 
-
-
 .btnShowMore {
     background-color: var(--button);
     border-radius: 200px;
@@ -139,6 +135,9 @@
     color: var(--white);
     border: none;
     cursor: pointer;
+    text-align: center;
+    padding: 16px;
+
 }
 
 .btnShowMore:hover,
