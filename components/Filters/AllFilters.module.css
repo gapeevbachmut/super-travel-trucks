@@ -1,19 +1,14 @@
 .filters {
     float: left;
-    width: 360px;
+    width: 290px;
     height: 100vh;
-}
-
-.catalog {
-    width: 888px;
-
 }
 
 
 /* ------  FILTERS  ------ */
 
 .form {
-    width: 360px;
+    width: 100%;
 }
 
 .locationBox {
@@ -21,6 +16,7 @@
     flex-direction: column;
     margin-bottom: 40px;
     position: relative;
+    /* width: 290px; */
 }
 
 .iconMap {
@@ -45,7 +41,6 @@
     background-color: var(--inputs);
     border-radius: 12px;
     padding: 18px 18px 18px 50px;
-    width: 360px;
     height: 56px;
     border: none;
     cursor: pointer;
@@ -58,6 +53,7 @@
     line-height: 150%;
     color: var(--gray);
 }
+
 
 .filtersBoxTitle {
     font-family: var(--font-family);
@@ -96,7 +92,7 @@
     border: 1px solid var(--gray-light);
     border-radius: 12px;
     background-color: var(--white);
-    width: 112px;
+    width: 86px;
     height: 96px;
     display: flex;
     flex-direction: column;
@@ -119,7 +115,7 @@
 .active {
     border: 1px solid var(--button);
     border-radius: 12px;
-    width: 112px;
+    width: 86px;
     height: 96px;
 }
 
@@ -151,3 +147,21 @@
 .btnSearch:focus {
     background-color: var(--button-hover);
 }
+
+@media (min-width:768px) {
+    .filters {
+        width: 360px;
+    }
+
+    .equipmentCard,
+    .typeCard {
+        width: 112px;
+    }
+
+    .active {
+        width: 112px;
+    }
+
+}
+
+@media (min-width:1440px) {}

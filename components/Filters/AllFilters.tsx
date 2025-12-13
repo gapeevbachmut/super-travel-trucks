@@ -3,6 +3,7 @@
 import { Formik, Form, Field, FormikConsumer, FieldProps } from 'formik';
 import { CamperFilters, EquipmentKey } from '@/types/filters';
 import css from './AllFilters.module.css';
+import { useCamperStore } from '@/store/useCamperStore';
 
 export interface FilterFormValues {
   location: string;
@@ -35,6 +36,9 @@ const AllFilters = ({ allLocations, onSubmit, loading }: Props) => {
     // { key: 'water', label: 'Water', icon: 'water' },
   ];
 
+  const { isModalOpen, setIsModalOpen } = useCamperStore();
+  const closeModal = () => setIsModalOpen(false);
+
   const handleSubmit = (values: FilterFormValues) => {
     const filters: CamperFilters = {};
 
@@ -43,6 +47,7 @@ const AllFilters = ({ allLocations, onSubmit, loading }: Props) => {
     values.equipment.forEach(key => (filters[key] = true));
 
     onSubmit(filters);
+    if (isModalOpen) closeModal();
   };
 
   return (
