@@ -2,6 +2,7 @@ import Link from 'next/link';
 import css from './Footer.module.css';
 
 const Footer = () => {
+  const date = new Date().getFullYear();
   return (
     <footer className={css.footer}>
       <div className={css.content}>
@@ -14,8 +15,18 @@ const Footer = () => {
             </Link>
           </p>
         </div>
-        {/* <p>© {new Date().getFullYear()} All rights reserved.</p> */}
-        <p>© 2025 - {new Date().getFullYear()} All rights reserved.</p>
+
+        <p>
+          <time dateTime="2025">2025</time> -{' '}
+          <time dateTime={new Date().getFullYear().toString()}>{date}</time>{' '}
+          Built with{' '}
+          <span role="img" aria-label="love">
+            <svg width={16} height={16} aria-hidden="true" focusable="false">
+              <use href="/icons-2.svg#icon-heart-red"></use>
+            </svg>
+          </span>{' '}
+          and shared for free.
+        </p>
       </div>
     </footer>
   );
